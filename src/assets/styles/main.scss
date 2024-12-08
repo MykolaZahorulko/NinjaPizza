@@ -1,11 +1,23 @@
 //Mixins
-@import './mixins.scss';
-//----------------------------------------------------------------------------------------
-//Fonts
-//@import './fonts.scss';
+@use './mixins.scss' as *;
 //----------------------------------------------------------------------------------------
 //Reset styles
-@import './reset.scss';
+@use './reset.scss';
 //----------------------------------------------------------------------------------------
-//Global styles, classes
-@import './global.scss';
+//Global styles
+body {
+	&._lock {
+		overflow: hidden;
+	}
+}
+.wrapper {
+	min-height: 100vh;
+	height: 100%;
+	overflow: hidden;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+main {
+	flex: 1 1 auto;
+}

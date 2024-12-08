@@ -1,0 +1,79 @@
+@use '../../../assets/styles/mixins.scss' as *;
+
+.header {
+	border-bottom: 1px solid #ededed;
+	@include adaptive-value(padding-top, 45, 20, 1);
+	@include adaptive-value(padding-bottom, 42, 18, 1);
+
+	&__container {
+		content: '';
+	}
+
+	&__content {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__left {
+		display: flex;
+		align-items: center;
+		@include adaptive-value(gap, 12, 8, 1);
+		cursor: pointer;
+
+		&_logo {
+			display: flex;
+			@include adaptive-value(width, 41, 31, 1);
+			@include adaptive-value(height, 42, 32, 1);
+
+			img {
+				@include objf(contain);
+			}
+		}
+		&_info {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			font-style: italic;
+			&_title {
+				text-transform: uppercase;
+				font-weight: 900;
+				@include adaptive-value(font-size, 20, 16, 1);
+			}
+			&_subtitle {
+				@include adaptive-value(font-size, 18, 14, 1);
+				color: #7b7b7b;
+			}
+		}
+	}
+
+	&__right {
+		.header__buttons {
+			&_sign_in {
+				padding: rem(14) rem(22);
+
+				// hover
+				@media (hover: hover) {
+					&:hover {
+						color: #7e0a0a;
+					}
+				}
+
+				@media (hover: none) {
+					&:active {
+						color: #7e0a0a;
+					}
+				}
+
+				&_img {
+					width: rem(13);
+					height: rem(15);
+
+					svg {
+						@include objf(contain);
+					}
+				}
+			}
+		}
+	}
+}

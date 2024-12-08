@@ -1,0 +1,50 @@
+@use '../../../assets/styles/mixins.scss' as *;
+
+.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	font-size: rem(16);
+	font-weight: 600;
+	@include border-radius(15);
+	cursor: pointer;
+	@include transition(all, ease, .3s, 0s);
+
+	&.filled {
+		background-color: black;
+		color: white;
+		font-weight: bold;
+
+		// hover
+		@media (hover: hover) {
+			&:hover {
+				background-color: #7e0a0a;
+			}
+		}
+
+		@media (hover: none) {
+			&:active {
+				background-color: #7e0a0a;
+			}
+		}
+	}
+
+	&.outlined {
+		border: 1px solid black;
+    
+    // hover
+    @media (hover:hover) {
+    	&:hover {
+    		border: 1px solid #7E0A0A;
+    	}
+    }
+    
+    @media (hover:none) {
+    	&:active {
+    		border: 1px solid #7E0A0A;
+    	}
+    }
+    
+	}
+}
