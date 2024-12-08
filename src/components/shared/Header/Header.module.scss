@@ -18,8 +18,8 @@
 	&__left {
 		display: flex;
 		align-items: center;
-		@include adaptive-value(gap, 12, 8, 1);
 		cursor: pointer;
+		@include adaptive-value(gap, 12, 8, 1);
 
 		&_logo {
 			display: flex;
@@ -41,8 +41,8 @@
 				@include adaptive-value(font-size, 20, 16, 1);
 			}
 			&_subtitle {
-				@include adaptive-value(font-size, 18, 14, 1);
 				color: #7b7b7b;
+				@include adaptive-value(font-size, 18, 14, 1);
 			}
 		}
 	}

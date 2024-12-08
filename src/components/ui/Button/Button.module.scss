@@ -9,7 +9,7 @@
 	font-weight: 600;
 	@include border-radius(15);
 	cursor: pointer;
-	@include transition(all, ease, .3s, 0s);
+	@include transition(all, ease, 0.3s, 0s);
 
 	&.filled {
 		background-color: black;
@@ -32,19 +32,18 @@
 
 	&.outlined {
 		border: 1px solid black;
-    
-    // hover
-    @media (hover:hover) {
-    	&:hover {
-    		border: 1px solid #7E0A0A;
-    	}
-    }
-    
-    @media (hover:none) {
-    	&:active {
-    		border: 1px solid #7E0A0A;
-    	}
-    }
-    
+
+		// hover
+		@media (hover: hover) {
+			&:hover {
+				border: 1px solid #7e0a0a;
+			}
+		}
+
+		@media (hover: none) {
+			&:active {
+				border: 1px solid #7e0a0a;
+			}
+		}
 	}
 }

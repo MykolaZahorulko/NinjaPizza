@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Header.module.scss';
 import Image from 'next/image';
 import { Button } from '@/components/ui';
-import { LogInIcon } from '@/assets/images'
+import { LogInIcon } from '@/assets/images';
 
 interface Props {
 	className?: string;
@@ -20,6 +20,7 @@ export const Header: React.FC<Props> = ({ className }) => {
 						</div>
 						<div className={styles.header__left_info}>
 							<h1 className={styles.header__left_info_title}>Ninja Pizza</h1>
+
 							<p className={styles.header__left_info_subtitle}>faster than ever</p>
 						</div>
 					</div>
