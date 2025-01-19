@@ -1,4 +1,20 @@
 @use 'sass:math';
+//----------------------------------------------------------------------------------------
+// Adaptive Value Function Variables
+$max-mockup-width: 1680; // Maximum width of the mockup (without 'px')
+$container-max-width: 1370; // Maximum container width from the mockup (without 'px', includes padding)
+$base-font-size: 16; // Base font size (without 'px')
+$min-mockup-width: 390; // Minimum width of the mockup (without 'px')
+// Colors variables
+$color-white: #FFFFFF;
+$color-black: #000000;
+$color-hover: #8E3131;
+$color-deep-grey: #7B7B7B;
+$color-mid-grey: #ADADAD;
+$color-light-grey: #F6F6F6;
+$color-bright-grey: #FDFDFD;
+//----------------------------------------------------------------------------------------
+// Mixins
 @mixin objf($size) {
 	object-fit: $size;
 	-webkit-object-fit: $size;
@@ -23,7 +39,7 @@
 	-moz-transform: rotate($deg);
 	-o-transform: rotate($deg);
 }
-@mixin translate($degX, $degY) {
+@mixin translate($degX: -50%, $degY: -50%) {
 	transform: translate($degX, $degY);
 	-webkit-transform: translate($degX, $degY);
 	-moz-transform: translate($degX, $degY);
@@ -41,10 +57,10 @@
 	-moz-transition: $all $time $scenario $delay;
 	-o-transition: $all $time $scenario $delay;
 }
-@mixin box-shadow($shadow) {
-	-webkit-box-shadow: $shadow;
-	-moz-box-shadow: $shadow;
-	box-shadow: $shadow;
+@mixin box-shadow($x: 1px, $y: 1px, $blur: 1px, $spread: 1px, $color: rgba(0, 0, 0, 0.15)) {
+  -webkit-box-shadow: $x $y $blur $spread $color;
+  -moz-box-shadow: $x $y $blur $spread $color;
+  box-shadow: $x $y $blur $spread $color;
 }
 @mixin border-radius($radius) {
 	-webkit-border-radius: $radius;
@@ -53,11 +69,6 @@
 }
 //----------------------------------------------------------------------------------------
 // Adaptive Value Function
-$max-mockup-width: 1680; // Maximum width of the mockup (without 'px')
-$container-max-width: 1370; // Maximum container width from the mockup (without 'px', includes padding)
-$base-font-size: 16; // Base font size (without 'px')
-$min-mockup-width: 390; // Minimum width of the mockup (without 'px')
-
 @mixin adaptive-value($property, $max-size, $min-size, $resize-type) {
 	$size-difference: $max-size - $min-size;
 
@@ -112,11 +123,18 @@ $min-mockup-width: 390; // Minimum width of the mockup (without 'px')
 	$rem-result: math.div($px-value, $base-font-size) + rem;
 	@return $rem-result;
 }
+
+// Convert Pixel to EM
+@function em($px-value) {
+	$em-result: math.div($px-value, $base-font-size) + em;
+	@return $em-result;
+}
+
 //----------------------------------------------------------------------------------------
 // Reusable classes
 .container {
 	/*  -- CONTAINER WIDTH  -- */
-	max-width: rem(1370);
+	max-width: rem($container-max-width);
 	margin: 0 auto;
 	@include adaptive-value(padding-right, 40, 20, 1);
 	@include adaptive-value(padding-left, 40, 20, 1);

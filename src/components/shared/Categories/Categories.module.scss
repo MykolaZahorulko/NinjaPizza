@@ -1,0 +1,21 @@
+@use '../../../assets/styles/mixins.scss' as *;
+
+.categories {
+	display: flex;
+	gap: rem(5);
+	background-color: $color-light-grey;
+	padding: rem(6) rem(5);
+	@include border-radius(rem(15));
+	&__category {
+		@include border-radius(rem(15));
+		padding: rem(10.5) rem(24.5);
+		&._active {
+			background-color: $color-white;
+			@include box-shadow(0, rem(2.4), rem(4), rem(0.4), $color-mid-grey);
+		}
+		&_content {
+			content: '';
+		}
+	}
+}
+

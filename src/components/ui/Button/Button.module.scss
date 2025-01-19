@@ -7,9 +7,9 @@
 	gap: 0.5rem;
 	font-size: rem(16);
 	font-weight: 600;
-	@include border-radius(15);
+	@include border-radius(rem(15));
 	cursor: pointer;
-	@include transition(all, ease, 0.3s, 0s);
+	@include transition(all, ease, 0.6s, 0s);
 
 	&.filled {
 		background-color: black;
@@ -32,7 +32,7 @@
 
 	&.outlined {
 		border: 1px solid black;
-
+		
 		// hover
 		@media (hover: hover) {
 			&:hover {

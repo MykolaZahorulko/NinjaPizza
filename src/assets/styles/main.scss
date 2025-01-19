@@ -4,12 +4,13 @@
 //Reset styles
 @use './reset.scss';
 //----------------------------------------------------------------------------------------
-//Global styles
+// Global styles
 body {
 	&._lock {
 		overflow: hidden;
 	}
 }
+
 .wrapper {
 	min-height: 100vh;
 	height: 100%;
@@ -18,6 +19,7 @@ body {
 	display: flex;
 	flex-direction: column;
 }
+
 main {
 	flex: 1 1 auto;
 }

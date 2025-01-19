@@ -1,7 +1,7 @@
 @use '../../../assets/styles/mixins.scss' as *;
 
 .header {
-	border-bottom: 1px solid #ededed;
+	border-bottom: rem(1.5) solid $color-light-grey;
 	@include adaptive-value(padding-top, 45, 20, 1);
 	@include adaptive-value(padding-bottom, 42, 18, 1);
 
@@ -41,33 +41,101 @@
 				@include adaptive-value(font-size, 20, 16, 1);
 			}
 			&_subtitle {
-				color: #7b7b7b;
+				color: $color-deep-grey;
 				@include adaptive-value(font-size, 18, 14, 1);
 			}
 		}
 	}
 
 	&__right {
+		content: '';
+		
 		.header__buttons {
+			display: flex;
+			align-items: center;
+			gap: rem(16);
+
 			&_sign_in {
-				padding: rem(14) rem(22);
+				padding: rem(12) rem(22);
 
 				// hover
 				@media (hover: hover) {
 					&:hover {
-						color: #7e0a0a;
+						color: $color-hover;
 					}
 				}
 
-				@media (hover: none) {
-					&:active {
-						color: #7e0a0a;
-					}
-				}
-
-				&_img {
+				&_icon {
 					width: rem(13);
 					height: rem(15);
+
+					svg {
+						@include objf(contain);
+					}
+				}
+			}
+
+			&_basket {
+				padding: rem(12) rem(22);
+				gap: rem(13);
+				position: relative;
+
+				// hover
+				@media (hover: hover) {
+					&:hover {
+						.header__buttons_basket_arrow_icon {
+							width: rem(14);
+							height: rem(14);
+							opacity: 1;
+							visibility: visible;
+							right: rem(26);
+						}
+
+						.header__buttons_basket_amount {
+							opacity: 0;
+							visibility: hidden;
+						}
+					}
+				}
+
+				&_price {
+					content: '';
+				}
+
+				&_separator {
+					display: block;
+					height: rem(25);
+					width: rem(1);
+					opacity: 25%;
+					background-color: $color-white;
+				}
+
+				&_amount {
+					display: flex;
+					align-items: center;
+					gap: rem(8);
+					@include scale(1);
+					@include transition(all, .6s, ease, 0s);
+
+					&_icon {
+						width: rem(16);
+						height: rem(16);
+						svg {
+							@include objf(contain);
+						}
+					}
+				}
+				
+				&_arrow_icon {
+					width: rem(12);
+					height: rem(12);
+					opacity: 0;
+					visibility: hidden;
+					position: absolute;
+					top: 50%;
+					right: 27%;
+					@include  translate(-50%, -50%);
+					@include transition(all, .4s, ease, 0s);
 
 					svg {
 						@include objf(contain);

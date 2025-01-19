@@ -1,0 +1,33 @@
+@use '../../../assets/styles/mixins.scss' as *;
+
+.title {
+	color: $color-black;
+	line-height: 100%;
+	font-weight: 700;
+}
+
+.xs {
+	@include adaptive-value(font-size, 16, 14, 1);
+}
+
+.sm {
+	@include adaptive-value(font-size, 20, 16, 1);
+}
+
+.md {
+	@include adaptive-value(font-size, 24, 18, 1);
+}
+
+.lg {
+	@include adaptive-value(font-size, 30, 24, 1);
+}
+
+.xl {
+	@include adaptive-value(font-size, 36, 30, 1);
+	font-weight: 800;
+}
+
+.xxl {
+	@include adaptive-value(font-size, 40, 32, 1);
+	font-weight: 900;
+}
